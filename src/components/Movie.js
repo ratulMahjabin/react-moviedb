@@ -1,25 +1,33 @@
 import react from "react";
 
 const Movie = (props) => {
-    const ImageURL = "https://image.tmdb.org/t/p/w500/" + props.data.poster_path;
-    return (
-        <div>
-            <div className="row">
-                <div className="col s12 m6">
-                    <div className="card">
-                        <div className="card-image">
-                            <img src={ImageURL} />
-                            <span className="card-title">Card Title</span>
-                            <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
-                        </div>
-                        <div className="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  const ImageURL = "https://image.tmdb.org/t/p/w500/" + props.data.poster_path;
+  return (
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          {props.data.poster_path == null ? (
+            <img
+              src="https://picsum.photos/200/300"
+              alt=""
+              style={{ width: "100", height: "200" }}
+            />
+          ) : (
+            <img
+              src={ImageURL}
+              alt=""
+              style={{ width: "100", height: "200" }}
+            />
+          )}
+
+          <span class="card-title">{props.data.title}</span>
         </div>
-    );
+        <div class="card-content">{props.data.release_date}</div>
+        <div class="card-action">
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Movie;
