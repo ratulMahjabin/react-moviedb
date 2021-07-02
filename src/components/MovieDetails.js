@@ -1,6 +1,14 @@
-import react from "react";
+import React from "react";
+import { useState, useEffect } from "react";
+import { getMovieDetails } from "../api/TMDB";
 import { Link } from "react-router-dom";
-const Movie = (props) => {
+const MovieDetails = (props) => {
+  const [currentMovie, setCurrentMovie] = useState({});
+
+  useEffect(() => {
+    getMovieDetails(props.location.movie_id, setCurrentMovie);
+  }, []);
+
   const ImageURL = "https://image.tmdb.org/t/p/w500/" + props.data.poster_path;
   return (
     <div class="col s12 m4">
@@ -38,4 +46,4 @@ const Movie = (props) => {
   );
 };
 
-export default Movie;
+export default MovieDetails;

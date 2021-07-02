@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-import Navbar from "./components/Navbar";
+
 import { getMoviesByTerm } from "./api/TMDB";
 import SearchBar from "./components/SearchBar";
 import MovieList from "./components/MovieList";
@@ -19,7 +19,6 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
       <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
       <MovieList movies={movies} />
     </div>
